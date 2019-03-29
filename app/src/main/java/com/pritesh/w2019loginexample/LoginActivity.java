@@ -2,9 +2,11 @@ package com.pritesh.w2019loginexample;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.PatternMatcher;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,9 +40,15 @@ public class LoginActivity extends AppCompatActivity
                 String email = edtUserEmail.getText().toString();
                 String pwd = edtPassword.getText().toString();
 
+                //Check for empty and show error message
+
                 if(email.trim().length() == 0 || TextUtils.isEmpty(email))
                 {
                     edtUserEmail.setError("Enter Email Id of user");
+                    return;
+                }else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                {
+                    edtUserEmail.setError("Enter Valid Email Id");
                     return;
                 }
 
