@@ -1,5 +1,6 @@
 package com.pritesh.w2019loginexample;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,9 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
+public class LoginActivity extends AppCompatActivity
 {
 
     private EditText edtUserEmail;
@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_login);
 
         edtUserEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
@@ -42,6 +41,13 @@ public class MainActivity extends AppCompatActivity
                 {
                     txtMsg.setText("Login Success");
                     txtMsg.setTextColor(Color.GREEN);
+
+
+                    //Navigate to NEXT Activity
+                    Intent mIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                    //Set value to pass on next activity
+                    mIntent.putExtra("name", "Pritesh Patel");
+                    startActivity(mIntent);
                 }
                 else
                 {
@@ -49,7 +55,7 @@ public class MainActivity extends AppCompatActivity
                     txtMsg.setTextColor(Color.RED);
                 }
 
-                //Toast.makeText(MainActivity.this, email, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(LoginActivity.this, email, Toast.LENGTH_SHORT).show();
             }
         });
 
