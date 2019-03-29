@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,6 +37,12 @@ public class LoginActivity extends AppCompatActivity
             {
                 String email = edtUserEmail.getText().toString();
                 String pwd = edtPassword.getText().toString();
+
+                if(email.trim().length() == 0 || TextUtils.isEmpty(email))
+                {
+                    edtUserEmail.setError("Enter Email Id of user");
+                    return;
+                }
 
                 if(email.equals("admin") && pwd.equals("admin@123"))
                 {
