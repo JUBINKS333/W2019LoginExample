@@ -25,6 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:drawableStart="@android:drawable/ic_dialog_email"
+        android:drawablePadding="5dp"
         android:hint="Enter Email ID"/>
 
     <EditText
@@ -32,8 +34,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"
+        android:drawableStart="@drawable/ic_password"
+        android:drawablePadding="5dp"
         android:hint="Enter Password"
-        />
+        android:inputType="textPassword"/>
 
     <TextView
         android:id="@+id/lblMessage"
@@ -56,10 +60,5 @@
             android:layout_height="wrap_content"
             android:text="Sign In"/>
 
-        <Button
-            android:id="@+id/btnClear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Clear"/>
     </LinearLayout>
 </LinearLayout>
